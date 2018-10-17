@@ -5,6 +5,7 @@
   <title>task00002</title>
 </head>
 <script>
+console.log("Hello World")
 alert("hello world")
 </script>
 <body>
