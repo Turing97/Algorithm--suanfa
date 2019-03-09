@@ -1,0 +1,36 @@
+<script type="text/javascript">
+ var str1 = 'aaabbccddddd'
+ var arr_son1 =[]
+ var arr =[1]
+ arr_son1.push(str1.charAt(0))
+ console.log(str1.charAt(0))
+ // console.log(arr_son1)
+ console.log(str1[1])
+ var arr_max =[]
+ function MaxSonstr(str1){
+     for(var i = 1; i < str1.length; i++){
+
+        if(arr_son1.indexOf(str1[i]) >= 0){
+          console.log("现在的位置是" )
+          console.log(i)
+          console.log(str1[i])
+
+          arr_son1 =[]
+          arr_son1.push(str1.charAt(i))
+        }
+        else {
+          arr_son1.push(str1[i])
+        }
+        if(arr_son1.length >= arr_max.length){
+          arr_max =[]
+          arr_max = [].concat(arr_son1)
+        }
+     }
+     console.log(arr_max);  
+  }
+  MaxSonstr(str1);
+</script>
+</head>
+<body>
+</body>
+</html>
