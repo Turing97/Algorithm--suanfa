@@ -1,0 +1,31 @@
+//暴力解法————js
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+
+<link id = '11' rel="stylesheet" type="text/css" href="1.css">
+<script type="text/javascript">
+  var num =[2,7,10,12]
+  var target = 9
+  function towSum(num,target){
+    for(var i = 0; i < num.length; i++){
+      for ( var j = i; j < num.length; j++){
+          if(target == num[i] + num[j]){
+            console.log("查找的值所在的位置分别为%d和%d，目标数字9对应的值为%d和%d",i+1,j+1,num[i],num[j])
+          }
+      }
+    }
+  }
+  towSum(num,target)
+
+</script>
+</head>
+<body>
+
+</body>
+</html>
+
+//hashmap 解法  时间复杂度0(n),空间复杂度0(n)
+
+
