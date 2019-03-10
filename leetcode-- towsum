@@ -27,5 +27,42 @@
 </html>
 
 //hashmap 解法  时间复杂度0(n),空间复杂度0(n)
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
 
+<link id = '11' rel="stylesheet" type="text/css" href="1.css">
+<script type="text/javascript">
+  var num =[2,3,10,12]
+  var target = 4
+  var tep = []
+  function towSum(num,target){
+    var map = {}
+    for(var i = 0; i < num.length; i++){
+
+      map[num[i]] = i;
+
+    }
+
+    for (var i = 0; i < num.length; i++){
+      target = target-num[i];
+      //console.log(target);
+      if(map[target] != null && map[target] != i){
+        tep.push(target);
+        tep.push(num[i]);
+      }
+    }
+      
+      return tep;
+  }
+  towSum(num,target)
+  console.log(tep)
+
+</script>
+</head>
+<body>
+
+</body>
+</html>
 
