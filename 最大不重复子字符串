@@ -34,3 +34,42 @@
 <body>
 </body>
 </html>
+
+
+
+//在leetcode上面不能通过  代码有遇到一些个别情况不能输出正常值，故修改
+/**
+ * @param {string} s
+ * @return {number}
+ */
+var lengthOfLongestSubstring = function(s) {
+   var max = [];
+   var temp = [];
+   temp.push(s.charAt(0));
+    max.push(s.charAt(0));
+    if(s.length == 1){
+        return 1;
+    }
+    if(s.length == 0){
+        return 0;
+    }
+    
+    //max.push(s.charAt[0]);
+    for(var i = 1; i< s.length; i++){
+        if (temp.indexOf(s[i])>= 0){
+             temp.splice(0,temp.indexOf(s[i])+1)
+            temp.push(s.charAt(i));
+        }
+        else{
+            temp.push(s[i]);
+        }
+        if(temp.length >= max.length){
+            
+            max =[].concat(temp);
+    
+    //console.log(3)
+        }
+    }
+    return(max.length)
+    
+};
