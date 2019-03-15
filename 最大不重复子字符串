@@ -30,14 +30,11 @@
   }
   MaxSonstr(str1);
 </script>
-</head>
-<body>
-</body>
-</html>
 
 
 
-//在leetcode上面不能通过  代码有遇到一些个别情况不能输出正常值，故修改
+
+//上述代码在leetcode上面不能通过  代码有遇到一些个别情况不能输出正常值，故修改
 /**
  * @param {string} s
  * @return {number}
