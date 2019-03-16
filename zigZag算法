@@ -1,0 +1,38 @@
+/**
+ * @param {string} s
+ * @param {number} numRows
+ * @return {string}
+ */
+var convert = function(s, numRows) {
+   	var a =[];
+ 	if(numRows === 1){
+ 		console.log(s)
+ 		return s;
+ 	}
+ 	if(numRows ===2){
+ 		for(var i = 0;i<s.length;i+=2){
+ 			a.push(s[i])
+ 		}
+ 		for(var i = 1;i<s.length;i+=2){
+ 			a.push(s[i])
+ 		}
+ 		console.log(a)
+ 		return a.join('');
+ 	}
+    
+    var i = 0;
+    //a.push(1)
+    for(var k = 0; k < numRows; k++){
+    	i = k;
+        while(i < s.length){
+            a.push(s[i]);
+            if(k<numRows-1 && k > 0){
+                a.push(s[numRows*2-2-2*k+i]);
+            }
+            i = i + numRows*2-2;
+        }
+    }
+    return a.join('');
+    console.log(a)
+    
+};
