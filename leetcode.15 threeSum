@@ -44,3 +44,76 @@ var threeSum = function(nums) {
     
     
 };
+
+
+
+//对代码进行了一些优化，运行通过率为311/313。没有找到更优的办法了
+/**
+ * @param {number[]} nums
+ * @return {number[][]}
+ */
+var threeSum = function(nums) {
+    var count = 0;
+    var a = []
+    nums.sort(sortNumber);
+    function sortNumber(a, b)
+{
+return a - b
+}
+    for(var i = 0 ; i < nums.length; i++){
+        for(var j = nums.length-1; j>i;j--){
+            if(nums[i]+nums[j] >= 0){
+                if(nums[i]+nums[j]<=-nums[i+1]){
+                    for(var k = i+1; k < j;k++){
+                    if(nums[i]+nums[j]+nums[k]===0){
+                        a[count] = [nums[i],nums[k],nums[j]]
+                        var m = count-1
+                    while(m >= 0){
+                    	
+                        if(a[count].toString() === a[m].toString()){
+                            a[count] = []
+                            a.length--
+                            count--
+                            break;
+                        }
+                        m--
+                        
+                     }
+                        count++
+                    }
+                   
+                }
+                }
+                
+            }
+            else{
+                if(nums[i]+nums[j]>=-nums[j-1]){
+                    for(var k = j-1; k > i;k--){
+                    if(nums[i]+nums[j]+nums[k]===0){
+                        a[count] = [nums[i],nums[k],nums[j]];
+                        var m = count-1
+                    while(m >= 0){
+                    	
+                        if(a[count].toString() === a[m].toString()){
+                            a[count] = []
+                            a.length--
+                            count--
+                            break;
+                        }
+                        m--
+                        
+                     }
+                        count++
+                    }
+                   
+                }
+                
+                }
+                 
+            }
+        }
+    }
+    //console.log(nums)
+    return a
+    
+};
