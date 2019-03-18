@@ -1,0 +1,46 @@
+//运行超时了，这样简单暴力的算法不能满足时间复杂度的要求啊
+
+
+/**
+ * @param {number[]} nums
+ * @return {number[][]}
+ */
+var threeSum = function(nums) {
+    var a = []
+    var count = 0;
+    for(var i = 0; i< nums.length; i++){
+        for(var j = i+1;j < nums.length;j++){
+            for( var k = j+1; k < nums.length; k++){
+                if(nums[i]+nums[j]+nums[k] === 0){
+                    
+                    a[count] = [nums[i],nums[j],nums[k]]
+                    
+                    a[count].sort();
+                    var m = count-1
+                    while(m >= 0){
+                    	
+                        if(a[count].toString() === a[m].toString()){
+                            a[count] = []
+                            a.length--
+                            count--
+                            break;
+                        }
+                        m--
+                        
+                     }
+                    // a[count] = [nums[j]]
+                    // a[count] = [nums[k]]
+                    // a[count].push(nums[i]);
+                    // a[count].push(nums[j]);
+                    // a[count].push(nums[k]);
+                    count ++;
+                    
+                }
+            }
+        }
+    }
+    console.log(a)
+    return a;
+    
+    
+};
