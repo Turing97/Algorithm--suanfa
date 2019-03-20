@@ -1,0 +1,66 @@
+/**
+ * @param {number} x
+ * @return {number}
+ */
+var reverse = function(x) {
+    
+    //方法1  内存超出了分配内存
+//     var a = []
+//     var k =1;
+//     var result = 0;
+//     for(var i = 0;i<k;i++){
+//         a[i] = x%10;
+//         x  = Math.floor(x/10);
+//         if(x === 0){
+//             break;
+//         }
+//         else{
+//             k++;
+//         }
+//          result += Math.pow(10,a.length-1-i)*a[i]
+//     }
+    
+   
+//     if(x<0){
+//         result = -result
+//     }
+//     return result
+    
+    
+    //方法二，自己做的 算法效率很低，只超过百分之十的算法
+//     var tem = x.toString();
+    
+//     tem = tem.split("").reverse().join("");
+//     var result = parseInt(tem)
+//     if(x<0){
+//         result = -result
+//     }
+//     if(result<Math.pow(-2,31) || result>Math.pow(2,31)){
+//         return 0;
+//     }
+//     return (result)
+    
+    //方法三 通过阅读他人代码所写，将x的尾数一个个pop出来，push到第一位上  效率较高超过百分之八十的算法
+    var rev = 0;
+    var k =0
+    if(x<0){
+        k++;
+        x = -x;
+    }
+    while(x!==0){
+        
+    var pop = x%10;
+    x = Math.floor(x/10);
+    
+    var temp = rev*10 + pop
+    rev = temp
+        if(rev<Math.pow(-2,31) || rev>Math.pow(2,31)){
+        return 0;
+    }
+    }
+    if(k ===1){
+        rev = -rev
+    }
+    return rev
+    
+};
