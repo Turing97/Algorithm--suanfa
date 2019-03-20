@@ -1,0 +1,50 @@
+//两次遍历，第一次取到链表长度，第二次根据所给的值将要去除的位置找到然后删除节点  注意dummyHead有一个多余的未定义的头结点  所以最终返回的是dummyHead.next
+
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val) {
+ *     this.val = val;
+ *     this.next = null;
+ * }
+ */
+/**
+ * @param {ListNode} head
+ * @param {number} n
+ * @return {ListNode}
+ */
+var removeNthFromEnd = function(head, n) {
+    var dummyHead = new ListNode();
+    dummyHead.next= head;
+    var currNode = new ListNode();
+    currNode = dummyHead;
+    var count = 0;
+    while(currNode !== null){
+        count++;
+        currNode = currNode.next;
+        
+    }
+    //console.log(count)
+    //return dummyHead
+    currNode = dummyHead;
+    //if(n===count){
+    //    return dummyHead
+    //}
+    count -= n;
+    
+    while(count >1){
+        count --
+        currNode = currNode.next ;
+    }
+    if(currNode.next === null){
+        currNode = null;
+    }
+    else{
+        currNode.next = currNode.next.next;
+    }
+    
+    
+    console.log(count);
+    console.log(dummyHead)
+    return dummyHead.next
+    
+};
