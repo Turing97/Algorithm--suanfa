@@ -1,0 +1,27 @@
+//和之前反转数组类似  将数字最后一位pop出来放在第一位 最终拿出反转的数字和输入数字比较 相等即为回文数
+/**
+ * @param {number} x
+ * @return {boolean}
+ */
+var isPalindrome = function(x) {
+    var y = x
+    if(x<0){
+        return false
+    }
+    var rev = 0;
+    while(y!==0){
+        var pop = y%10;
+        y = Math.floor(y/10);
+        rev = rev*10+pop
+        
+    
+    }
+    if(rev === x){
+        return true
+    }
+    else{
+        return false
+    }
+   
+    
+};
