@@ -1,0 +1,51 @@
+//  利用while循环 if else判断  所需时间很长算法效率很低
+
+/**
+ * @param {string} s
+ * @return {number}
+ */
+var romanToInt = function(s) {
+    var map = {}
+    map["I"] = 1;
+    map["V"] = 5;
+    map["X"] = 10;
+    map["L"] = 50;
+    map["C"] = 100;
+    map["D"] = 500;
+    map["M"] = 1000;
+    var i = 0
+    var sum = 0;
+    console.log(map[s[1]])
+    while(i < s.length){
+        if(s[i+1] === "V" && s[i] === "I"){
+            sum += 4;
+            i++;
+        }
+        else if(s[i+1] === "X" && s[i] === "I"){
+            sum += 9;
+            i++;
+        }
+        else if(s[i+1] === "L" && s[i] === "X"){
+            sum += 40;
+            i++;
+        }
+        else if(s[i+1] === "C" && s[i] === "X"){
+            sum += 90;
+            i++;
+        }
+        else if(s[i+1] === "D" && s[i] === "C"){
+            sum += 400;
+            i++;
+        }
+        else if(s[i+1] === "M" && s[i] === "C"){
+            sum += 900;
+            i++;
+        }
+        else{
+            sum += map[s[i]];
+        }
+        
+        i++
+    }
+    return sum;
+};
