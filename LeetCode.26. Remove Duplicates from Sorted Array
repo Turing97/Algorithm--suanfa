@@ -1,1 +1,21 @@
+//自己写的垃圾解法，运行时间300ms 占用空间大
 
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var removeDuplicates = function(nums) {
+    var count = nums.length;
+    var k = 0
+    for(var i = 0;i<nums.length;i++){
+        for(var j = i+1;j<nums.length;j++){
+            if(nums[i] === nums[j]){
+                nums.splice(j,1);
+                j--;
+                k++;
+            }
+            
+        }
+    }
+    return count-k
+};
