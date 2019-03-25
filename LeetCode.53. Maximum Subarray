@@ -1,0 +1,33 @@
+
+//超垃圾算法，暴力求解188ms
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var maxSubArray = function(nums) {
+    var max = -10000000;
+    var temp = 0;
+    if(nums.length ===1){
+        return nums
+    }
+    
+    for(var i = 0;i < nums.length;i++){
+        temp = nums[i]
+        if(temp>max){
+                max = temp;
+                
+            }
+        
+        for(var j = i+1;j<nums.length;j++){
+            temp += nums[j];
+            if(temp>max){
+                max = temp;
+                var k = j-i
+            }
+        }
+        
+    }
+    console.log(max)
+    return max
+    
+};
