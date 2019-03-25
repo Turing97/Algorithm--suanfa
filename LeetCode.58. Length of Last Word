@@ -1,0 +1,18 @@
+//利用正则表达式去除前后空格然后split方法将字符串分割为数组，取数组最后一个元素字符串的长度即可
+
+/**
+ * @param {string} s
+ * @return {number}
+ */
+var lengthOfLastWord = function(s) {
+    
+    var a = s.replace(/(^\s*)|(\s*$)/g, "").split(" ")
+    console.log(a)
+    if(a.length === 0){
+        return 0;
+    }
+    
+    return a[a.length-1].length;
+    
+    
+};
