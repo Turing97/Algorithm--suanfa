@@ -31,3 +31,24 @@ var maxSubArray = function(nums) {
     return max
     
 };
+///相对好一点点，只用了一次循环  两个算法对于max的初始值都只是简单的设置了一个较大的负数，不是很合理。没有去写标准的最小值
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var maxSubArray = function(nums) {
+    var max =-111111111111
+    var temp = 0
+    for(var i = 0;i<nums.length;i++){
+        temp += nums[i];
+        if(temp < nums[i]){
+            temp = nums[i];
+            //break;
+        }
+        if(temp>max){
+            max = temp;
+        }
+    }
+    
+    return max
+};
