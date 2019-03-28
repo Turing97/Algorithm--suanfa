@@ -1,0 +1,33 @@
+//二分算法，为什么效率如此低下呢
+/**
+ * @param {number} x
+ * @return {number}
+ */
+var mySqrt = function(x) {
+    if(x === 0){
+        return 0
+    }
+    if(x ===1){
+        return 1
+    }
+    //var res = x;
+    var left = 0;
+    var right = x;
+    //var middle = Math.floor((left+right)/2);
+    while(left < right){
+        var middle = Math.floor((left+right)/2);
+        console.log(middle);
+        
+        if(middle*middle <= x && (middle+1)*(middle+1) > x){
+            return Math.floor(middle);
+        }
+        else if(middle*middle > x){
+            right = middle;
+        }
+        else if(middle * middle <x){
+            left = middle ;
+        }
+    }
+    
+    
+};
