@@ -31,3 +31,38 @@ var mySqrt = function(x) {
     
     
 };
+
+
+//大佬的算法，真的神了
+/**
+ * @param {number} x
+ * @return {number}
+ */
+var mySqrt = function(x) {
+     r = x;
+    while (r*r > x)
+        r = ((r + x/r) / 2) | 0;
+    return r;
+    
+};
+
+
+
+//还有一种基于牛顿迭代法的，和上述算法差不多，但是在js里面不能直接使用abs 不能调试
+/**
+ * @param {number} x
+ * @return {number}
+ */
+var mySqrt = function(x) {
+     //牛顿迭代法
+    if(x == 0) return 0;      
+    var a = 0;  // b和a是相邻两次迭代结果 
+    var b = 1;      // 在1附近开始找，迭代逼近目标值  
+    while(Math.abs(b-a) > 0.1)  // 判断条件为abs(b-a) > 0.1
+    {  
+        a = b;  
+        b = (b + x/b)/2.0;  
+    }  
+    return Math.floor(b);  // 返回值要求为int，需强制转换
+
+};
