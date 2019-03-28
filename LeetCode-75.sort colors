@@ -1,0 +1,36 @@
+//自己做的算法，一次循环就能返回正确的数组。但是效率和内存占用都很差，只能超过百分之五的算法，实在是惭愧
+
+
+/**
+ * @param {number[]} nums
+ * @return {void} Do not return anything, modify nums in-place instead.
+ */
+var sortColors = function(nums) {
+    var count =0    //统计push次数
+    for(var i = 0;i<nums.length;i++){
+        if(nums[i]<1){
+            nums.splice(i,1);
+            nums.unshift(0);
+            console.log(nums)
+            //i++
+           
+            
+        }
+        else if(nums[i]>1){
+            nums.splice(i,1);
+            nums.push(2);
+            count ++
+            //console.log(nums)
+            i--;
+            
+            //如果当前位置与之前push的数位置重合的话，就直接跳出循环
+            if(nums.length - i < count ){
+                break;
+            }
+                
+            
+        }
+    }
+    //return nums
+    
+};
