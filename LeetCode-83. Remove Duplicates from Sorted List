@@ -1,0 +1,42 @@
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val) {
+ *     this.val = val;
+ *     this.next = null;
+ * }
+ */
+/**
+ * @param {ListNode} head
+ * @return {ListNode}
+ */
+var deleteDuplicates = function(head) {
+    var res = new ListNode(0);
+    //res.next = new ListNode(0)
+    //var dummyHead = new ListNode(0), node = res;
+    res.next= head;
+    var preNode = head;
+    if(head == null){
+        return head;
+    }
+    head = head.next;
+    //console.log(res.next)
+    //return res
+    while(head!== null){
+        //console.log(1)
+        if(preNode.val== head.val){
+            //console.log(2)
+            preNode.next = head.next; 
+            head = head.next;
+            // console.log(preNode)
+            // console.log(head)
+            // console.log(res)
+        }
+        else{
+            preNode = head;
+            head = head.next;
+            //preNode = head;
+        }
+        
+    }
+    return res.next
+};
