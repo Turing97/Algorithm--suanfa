@@ -1,0 +1,29 @@
+插入排序，先将两个数组合并然后从第二个数开始，将第一个数作为以排序序列插入相应的位置。
+
+/**
+ * @param {number[]} nums1
+ * @param {number} m
+ * @param {number[]} nums2
+ * @param {number} n
+ * @return {void} Do not return anything, modify nums1 in-place instead.
+ */
+var merge = function(nums1, m, nums2, n) {
+    var k = 0;
+    for(var i = m;i<m+n;i++){
+        nums1[i] = nums2[k];
+        k++;
+    }
+    var temp = 0;
+    for(var i = 1;i<m+n;i++){
+        temp = nums1[i];
+        var j = i-1;
+        
+        while(j>-1 && temp < nums1[j]){
+            //temp = nums1[j];
+            nums1[j+1] = nums1[j];
+            //nums1[i] = temp;
+            j--
+        }
+        nums1[j+1] = temp
+    }
+};
