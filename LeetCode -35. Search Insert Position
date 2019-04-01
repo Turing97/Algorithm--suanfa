@@ -1,0 +1,38 @@
+/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number}
+ */
+var searchInsert = function(nums, target) {
+    
+    var i = -1;
+    do{
+        console.log(1)
+        if(target === nums[i+1]){
+            return i+ 1;
+        }
+        i++;
+    }while(target>nums[i] && i<nums.length)
+        return i;
+};
+
+
+//二分法，下次记得只要遇到精准寻找，使用二分法
+    var low = 0,
+        height = nums.length-1,
+        mid = 0;
+    while(low <= height){
+        mid = Math.floor((low+height)/2);
+        console.log(mid);
+        if(target === nums[mid]){
+            return mid;
+        }
+        else if(target > nums[mid]){
+            low = mid+1;
+        }
+        else
+        {height = mid-1;}
+        
+        
+    }
+    return low;
