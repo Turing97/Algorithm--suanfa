@@ -1,0 +1,46 @@
+//算法不好，运行时间超长。
+
+/**
+ * @param {string} s
+ * @return {string}
+ */
+var longestPalindrome = function(s) {
+    var tempArr = [];
+    var max = [];
+    max.push(s.charAt(0));
+    if(s.length === 1){
+        return s;
+    }
+    var k = 0;
+    var count = 1;
+    for(var i = 0 ;i < s.length;i++){
+        tempArr = [];
+        tempArr.push(s[i]);
+        //char c = s[i];
+        for(var j = i+1;j < s.length; j++){
+            k++;
+            tempArr.push(s[j]);
+            if(s[i] === s[j]){
+                count = 1
+                for(var n = i,m = j;n <= m ;n++,m--){
+                    if(s[n] !== s[m]){
+                        count = 0;
+                        break;
+                    }
+                }
+                if(count === 1 && j-i+1 >= max.length){
+                    max = [].concat(tempArr);
+                }
+            }
+            
+        }
+        
+    }
+    //return k
+    //console.log(k)
+    return max.join('');
+};
+
+
+//算法二，使用动态规划来做
+
