@@ -1,0 +1,34 @@
+/**
+ * @param {number} n
+ * @return {string[]}
+ */
+var generateParenthesis = function(n) {
+    temp = n;
+    var total = [];
+    var temArr = [];
+    var res=""
+    result = [];
+    var isvalid = []
+    backtrack(res,0,0);
+    
+    return result;
+};
+function backtrack(res,left,right){
+    if(res.length==2*temp){
+        //console.log("if成立")
+        result.push(res);
+        //return;
+        
+    }
+    if(left < temp){
+        //console.log("left<temp")
+        //count++;
+        backtrack(res+"(",left+1,right);
+       
+    }
+    if(right < left){
+        //console.log("right < left")
+        //count++
+         backtrack(res+")",left,right+1);
+    }
+}
