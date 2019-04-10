@@ -1,0 +1,44 @@
+回溯法，查找到最后一个节点再将所得的字符放进结果集中
+
+/**
+ * @param {string} digits
+ * @return {string[]}
+ */
+var letterCombinations = function(digits) {
+    var res = "";
+    //定义两个全局变量
+    reslut = [];
+    node = {
+        2: ['a', 'b', 'c'] ,
+        3: ['d', 'e', 'f'] ,
+        4: ['g', 'h', 'i'] ,
+        5: ['j', 'k', 'l'] ,
+        6: ['m', 'n', 'o'] ,
+        7: ['p', 'q', 'r', 's'] ,
+        8: ['t', 'u', 'v'] ,
+        9: ['w', 'x', 'y', 'z'] 
+    }
+    //console.log(node[2].length);
+    /如果输入字符串不为空，执行回溯算法
+    if(digits.length != 0){
+        backtrack(digits,res);
+        return reslut;
+    }
+    
+    return reslut;
+};
+function backtrack(next_node, res){
+    //当查找到节点末端，将所得字符串放进结果集
+    if(next_node.length === 0){
+        reslut.push(res);
+    }
+    //不然就继续执行回溯算法
+    else{
+        var digit = next_node.substring(0,1);
+        var latter = node[digit];
+        for(var i = 0;i<latter.length;i++){
+            var nlatter = node[digit][i];
+            backtrack(next_node.substring(1),res+nlatter);
+        }
+    }
+}
