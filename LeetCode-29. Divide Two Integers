@@ -1,0 +1,59 @@
+/**
+ * @param {number} dividend
+ * @param {number} divisor
+ * @return {number}
+ */
+var divide = function(dividend, divisor) {
+    var res = 0;
+    //为了通过测试添加的条件
+    if(divisor === -1 && dividend === -2147483648) {
+    return 2147483647;
+  }
+    if(dividend ===0){
+        return res;
+    }
+    //被除数大于零的情况
+    if(dividend >0){
+        while(dividend >0){
+            //除数大于零
+            if(divisor >0){
+                dividend -= divisor;
+                res++;
+            }
+            //除数小于零
+            else {
+                dividend += divisor;
+                res--;
+            }
+        }
+    }
+    //被除数小于零
+    else{
+        while(dividend < 0){
+            //除数大于零
+            if(divisor >0){
+                dividend += divisor;
+                res --;
+            }
+            //除数小于零
+            else{
+                dividend -= divisor;
+                res++;
+            }
+        }
+    }
+    
+    if(dividend !== 0){
+        if(res>0){
+            return res-1;
+        }
+        else{
+            return res+1;
+        }
+    }
+    else{
+        return res;
+    }
+    
+    
+};
