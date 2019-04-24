@@ -1,0 +1,49 @@
+/**
+ * @param {number[]} candidates
+ * @param {number} target
+ * @return {number[][]}
+ */
+var combinationSum2 = function(candidates, target) {
+    candidates.sort();
+    //console.log(candidates);
+
+    //candidates = deleteRepet(candidates);
+    //console.log(candidates);
+    //return ;
+    var res = [];
+    temp = []
+    backTrack(candidates,target,0,res);
+    return temp;
+};
+function backTrack(candidates, target,start, res){
+    if(sumArray(res) > target){
+        //console.log("第一个if成立")
+        return;
+    }
+    //console.log(sumArray(res));
+    if(sumArray(res) == target){
+        //console.log("if成立")
+        
+        temp.push([].concat(res))
+        //return;
+    }
+    else{
+        for(var i = start; i < candidates.length; i++){
+            res.push(candidates[i]);
+            //console.log(res);
+            
+            backTrack(candidates,target,i+1,res);
+            res.pop();
+            while(i+1 < candidates.length && candidates[i]==candidates[i+1]) i++;
+        }
+    }
+        
+};
+function sumArray(arry){
+    var res = 0;
+    for(var i = 0;i <arry.length; i++){
+        res += arry[i];
+    }
+    return res;
+
+};
